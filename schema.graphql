@@ -1,0 +1,289 @@
+type Block @entity {
+    id: ID!
+    number: Int! @index
+    timestamp: DateTime! @index
+}
+
+type Transaction @entity {
+    id: ID!
+    blockNumber: Int @index
+    blockTimestamp: DateTime! @index
+    hash: String! @index
+    to: String @index
+    from: String @index
+    status: Int @index
+}
+
+type ContractEventIssue @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    amount: BigInt!
+}
+
+type ContractEventRedeem @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    amount: BigInt!
+}
+
+type ContractEventDeprecate @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    newAddress: String!
+}
+
+type ContractEventParams @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    feeBasisPoints: BigInt!
+    maxFee: BigInt!
+}
+
+type ContractEventDestroyedBlackFunds @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    blackListedUser: String!
+    balance: BigInt!
+}
+
+type ContractEventAddedBlackList @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    user: String!
+}
+
+type ContractEventRemovedBlackList @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    user: String!
+}
+
+type ContractEventApproval @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    owner: String! @index
+    spender: String! @index
+    value: BigInt!
+}
+
+type ContractEventTransfer @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+    from: String! @index
+    to: String! @index
+    value: BigInt!
+}
+
+type ContractEventPause @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+}
+
+type ContractEventUnpause @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    eventName: String! @index
+}
+
+type ContractFunctionDeprecate @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    upgradedAddress: String!
+}
+
+type ContractFunctionApprove @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    spender: String!
+    value: BigInt!
+}
+
+type ContractFunctionAddBlackList @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    evilUser: String!
+}
+
+type ContractFunctionTransferFrom @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    from: String!
+    to: String!
+    value: BigInt!
+}
+
+type ContractFunctionUnpause @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+}
+
+type ContractFunctionPause @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+}
+
+type ContractFunctionTransfer @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    to: String!
+    value: BigInt!
+}
+
+type ContractFunctionSetParams @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    newBasisPoints: BigInt!
+    newMaxFee: BigInt!
+}
+
+type ContractFunctionIssue @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    amount: BigInt!
+}
+
+type ContractFunctionRedeem @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    amount: BigInt!
+}
+
+type ContractFunctionRemoveBlackList @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    clearedUser: String!
+}
+
+type ContractFunctionTransferOwnership @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    newOwner: String!
+}
+
+type ContractFunctionDestroyBlackFunds @entity {
+    id: ID!
+    blockNumber: Int! @index
+    blockTimestamp: DateTime! @index
+    transactionHash: String! @index
+    contract: String! @index
+    functionName: String! @index
+    functionValue: BigInt
+    functionSuccess: Boolean @index
+    blackListedUser: String!
+}
+
