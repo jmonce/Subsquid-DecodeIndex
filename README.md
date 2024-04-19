@@ -1,5 +1,3 @@
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/subsquid/squid-abi-template)
-
 # Squid ABI
 
 A squid that decodes and indexes EVM logs and transactions for Tether contract on mainnet
